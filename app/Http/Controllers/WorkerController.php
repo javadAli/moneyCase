@@ -38,7 +38,7 @@ class WorkerController extends Controller
 
     public function show(Worker $worker)
     {
-        //
+
     }
 
 
@@ -50,7 +50,16 @@ class WorkerController extends Controller
 
     public function update(Request $request, Worker $worker)
     {
-        //
+        $workerName=$request->workerName;
+        $description=$request->description;
+        $workId=$request->workSn;
+        $addedTime=now();
+        $worker=Worker::where("WorkerId",$worker->WorkerId)->update([
+            "workerName"=>"$workerName"
+            , "description"=>"$description"
+            , "workSn"=>$workId
+        ]);
+        return response()->json(['worker'=>$worker]);
     }
 
 

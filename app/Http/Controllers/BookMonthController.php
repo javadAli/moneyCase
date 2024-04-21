@@ -45,7 +45,12 @@ class BookMonthController extends Controller
 
     public function update(Request $request, BookMonth $bookMonth)
     {
-        //
+        $bookMonth= BookMonth::where("BookMonthSn",$bookMonth->BookMonthSn)->update([  
+                                        "SnBook"=>$request->SnBook
+                                        , 
+                                        "NameMonth"=>"$request->NameMonth"
+                                        ]);
+            return response()->json(['bookMonth'=>$bookMonth]);
     }
 
 

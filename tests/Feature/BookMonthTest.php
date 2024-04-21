@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use \App\Models\Book;
 use \App\Models\User;
+use \App\Models\BookMonth;
+use \App\Models\Work;
 
 class BookMonthTest extends TestCase
 {
@@ -34,5 +36,16 @@ class BookMonthTest extends TestCase
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,count($response->json()['bookMonth']));
+    }
+    public function test_the_user_can_update_the_bookMonth() {
+        $user=(new User())->factory()->create();
+        $book= (new Book())->factory()->create();
+        $bookMonth=(new BookMonth())->factory()->create();
+        $response=$this->actingAs($user)->put("/bookMonths/".$bookMonth->BookMonthSn,[
+            "SnBook"=>$book->BookSn
+            , "NameMonth"=>fake()->monthName()
+        ]);
+        $response->assertStatus(200);
+        $this->assertGreaterThan(0,$response->json()["bookMonth"]);
     }
 }

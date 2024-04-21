@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use \App\Models\User;
 use Tests\TestCase;
 use \App\Models\BookMonth;
+use \App\Models\Days;
 
 class DaysTest extends TestCase
 {
@@ -35,5 +36,18 @@ class DaysTest extends TestCase
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,count($response->json()["day"]));
+    }
+    public function test_the_user_can_update_the_Days(){
+        $user=(new User())->factory()->create();
+        $bookMonth=(new BookMonth())->factory()->create();
+        $day=(new Days())->factory()->create();
+        $response=$this->actingAs($user)->put("/workDays/".$day->daySn,[
+            "dayName"=>1
+            , "InAmount"=>0
+            , "OutAmount"=>0
+            , "SnBookMonth"=>$bookMonth->BookMonthSn
+        ]);
+        $response->assertStatus(200);
+        $this->assertGreaterThan(0,$response->json()["day"]);
     }
 }

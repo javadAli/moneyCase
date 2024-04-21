@@ -44,9 +44,16 @@ class DaysController extends Controller
     }
 
 
-    public function update(Request $request, Days $days)
+    public function update(Request $request, $day)
     {
-        //
+        $days=Days::where("daySn",$day)->first();
+        $day=Days::where("daySn",$days->daySn)->update([  
+                    "dayName"=>"$request->dayName"
+                    , "InAmount"=>$request->InAmount
+                    , "OutAmount"=>$request->OutAmount
+                    , "SnBookMonth"=>$request->SnBookMonth
+                    ]);
+        return response()->json(['day'=>$day]);
     }
 
 

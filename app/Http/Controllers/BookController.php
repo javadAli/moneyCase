@@ -43,7 +43,11 @@ class BookController extends Controller
 
     public function update(Request $request, Book $book)
     {
-        //
+
+        $book=Book::where("BookSn",$book->BookSn)->update(["bookName"=>"$request->bookName"
+                            , "description"=>"$request->description"
+                            , "SnUSer"=>$request->SnUSer]);
+        return response()->json(['book'=>$book]);
     }
 
     public function destroy(Book $book)

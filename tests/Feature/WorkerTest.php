@@ -8,6 +8,7 @@ use \App\Models\User;
 use Tests\TestCase;
 use Illuminate\Support\Str;
 use \App\Models\Work;
+use \App\Models\Worker;
 class WorkerTest extends TestCase
 {
     use RefreshDatabase;
@@ -29,5 +30,17 @@ class WorkerTest extends TestCase
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,count($response->json()['worker']));
+    }
+    public function test_the_user_can_update_worker(){
+        $user=(new User())->factory()->create();
+        $worker=(new Worker())->factory()->create();
+        $work=(new Work())->factory()->create();
+        $response=$this->actingAs($user)->put("/workers/".$worker->WorkerId,[
+            "workerName"=>fake()->name
+            , "description"=>Str::random(20)
+            , "workSn"=>$work->workId
+        ]);
+        $response->assertStatus(200);
+        $this->assertGreaterThan(0,$response->json()["worker"]);
     }
 }
