@@ -54,8 +54,9 @@ class BookMonthController extends Controller
     }
 
 
-    public function destroy(BookMonth $bookMonth)
+    public function destroy($bookMonthSn)
     {
-        //
+        $bookMonth=BookMonth::where("BookMonthSn",$bookMonthSn)->delete();
+        return response()->json(['bookMonth'=>$bookMonth]);
     }
 }

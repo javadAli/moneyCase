@@ -13,11 +13,6 @@ use \App\Models\Comments;
 class CommentTest extends TestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
     public function test_index_of_comments_exists()
     {
         $user = (new User())->factory()->create();
@@ -46,5 +41,12 @@ class CommentTest extends TestCase
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["comment"]);
+    }
+    public function test_the_user_can_delete_the_comment(){
+        $user=(new User())->factory()->create();
+        $comment=(new Comments())->factory()->create();
+        $response=$this->actingAs($user)->delete("/dayComments/".$comment->DayCommentSn);
+        $response->assertStatus(200);
+        $this->assertEquals(1,$response->json()["comment"]);
     }
 }

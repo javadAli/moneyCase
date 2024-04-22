@@ -65,6 +65,7 @@ class WorkerController extends Controller
 
     public function destroy(Worker $worker)
     {
-        //
+        $worker=Worker::where("WorkerId",$worker->WorkerId)->delete();
+        return response()->json(["worker"=>$worker]);
     }
 }

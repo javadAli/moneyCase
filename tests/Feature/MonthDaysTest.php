@@ -109,4 +109,12 @@ class MonthDaysTest extends TestCase
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["monthDay"]);
     }
+    public function test_the_user_can_delete_the_monthDays(){
+        $user=(new User())->factory()->create();
+        $monthDay=(new MonthDays())->factory()->create();
+        $response=$this->actingAs($user)->delete("/monthDays/".$monthDay->monthSn);
+        $response->assertStatus(200);
+        $this->assertEquals(1,$response->json()["monthDay"]);
+        
+    }
 }

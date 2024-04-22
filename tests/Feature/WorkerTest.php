@@ -43,4 +43,11 @@ class WorkerTest extends TestCase
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["worker"]);
     }
+    public function test_the_user_can_delete_the_worker(){
+        $user=(new User())->factory()->create();
+        $worker=(new Worker())->factory()->create();
+        $response=$this->actingAs($user)->delete("/workers/".$worker->WorkerId);
+        $this->assertEquals(200,$response->getStatusCode());
+        $this->assertGreaterThan(0,$response->json()["worker"]);
+    }
 }

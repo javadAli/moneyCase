@@ -46,4 +46,11 @@ class BookTest extends TestCase
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["book"]);
     }
+    public function test_the_user_can_delete_the_book(){
+        $user=(new User())->factory()->create();
+        $book=(new Book())->factory()->create();
+        $response=$this->actingAs($user)->delete("/books/".$book->BookSn);
+        $response->assertStatus(200);
+        $this->assertEquals(1,$response->json()["book"]);
+    }
 }

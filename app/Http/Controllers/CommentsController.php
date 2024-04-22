@@ -51,8 +51,9 @@ class CommentsController extends Controller
     }
 
 
-    public function destroy(Comments $comments)
+    public function destroy($commentSn)
     {
-        //
+        $comment=Comments::where("DayCommentSn",$commentSn)->delete();
+        return response()->json(['comment'=>$comment]);
     }
 }

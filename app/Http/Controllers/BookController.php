@@ -52,6 +52,7 @@ class BookController extends Controller
 
     public function destroy(Book $book)
     {
-        //
+        $book=Book::where("BookSn",$book->BookSn)->delete();
+        return response()->json(["book"=>$book]);
     }
 }

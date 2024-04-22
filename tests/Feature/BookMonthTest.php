@@ -48,4 +48,12 @@ class BookMonthTest extends TestCase
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["bookMonth"]);
     }
+
+    public function test_the_user_can_delete_the_bookMonth(){
+        $user=(new User())->factory()->create();
+        $bookMonth=(new BookMonth())->factory()->create();
+        $response=$this->actingAs($user)->delete("/bookMonths/".$bookMonth->BookMonthSn);
+        $response->assertStatus(200);
+        $this->assertEquals(1,$response->json()["bookMonth"]);
+    }
 }

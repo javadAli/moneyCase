@@ -111,9 +111,9 @@ class MonthDaysController extends Controller
              return response()->json(["monthDay"=>$monthDay]);
     }
 
-
-    public function destroy(MonthDays $monthDays)
+    public function destroy($monthDaySn)
     {
-        //
+        $monthDay=MonthDays::where("monthSn",$monthDaySn)->delete();
+        return response()->json(['monthDay'=>$monthDay]);
     }
 }

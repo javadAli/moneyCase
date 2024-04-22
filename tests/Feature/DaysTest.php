@@ -50,4 +50,11 @@ class DaysTest extends TestCase
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["day"]);
     }
+    public function test_the_user_can_delete_book_month_days(){
+        $user=(new User())->factory()->create();
+        $day=(new Days())->factory()->create();
+        $response=$this->actingAs($user)->delete("/workDays/".$day->daySn);
+        $response->assertStatus(200);
+        $this->assertEquals(1,$response->json()["day"]);
+    }
 }

@@ -70,6 +70,8 @@ class WorkController extends Controller
 
     public function destroy(Work $work)
     {
-        //
+        
+        $work=Work::where("WorkId",$work->workId)->delete();
+        return response()->json(["work"=>$work]);
     }
 }

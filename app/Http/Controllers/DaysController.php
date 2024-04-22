@@ -57,8 +57,9 @@ class DaysController extends Controller
     }
 
 
-    public function destroy(Days $days)
+    public function destroy($daySn)
     {
-        //
+        $day=Days::where("DaySn",$daySn)->delete();
+        return response()->json(["day"=>$day]);
     }
 }
