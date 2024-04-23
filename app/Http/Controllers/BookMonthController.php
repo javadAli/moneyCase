@@ -45,7 +45,7 @@ class BookMonthController extends Controller
 
     public function update(Request $request, BookMonth $bookMonth)
     {
-        $bookMonth= BookMonth::where("BookMonthSn",$bookMonth->BookMonthSn)->update([  
+        $bookMonth=$bookMonth->update([  
                                         "SnBook"=>$request->SnBook
                                         , 
                                         "NameMonth"=>"$request->NameMonth"
@@ -54,9 +54,9 @@ class BookMonthController extends Controller
     }
 
 
-    public function destroy($bookMonthSn)
+    public function destroy(BookMonth $bookMonth)
     {
-        $bookMonth=BookMonth::where("BookMonthSn",$bookMonthSn)->delete();
+        $bookMonth=$bookMonth->delete();
         return response()->json(['bookMonth'=>$bookMonth]);
     }
 }

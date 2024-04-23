@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('monthDays', function (Blueprint $table) {
             $table->bigIncrements("monthSn");
-            $table->integer("workerSn");
-            $table->foreign("workerSn")->references("WorkerId")->on("workkers")->onDelete("cascade");
+            $table->integer("workerSn")->unsigned();
+            $table->foreign("workerSn")->references("WorkerId")->on("workers")->onDelete("cascade");
             $table->string("monthName");
             $table->enum("day1",['0','1','00','01','-1'])->default("1");
             $table->enum("day2",['0','1','00','01','-1'])->default("1");

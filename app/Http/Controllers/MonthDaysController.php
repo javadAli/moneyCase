@@ -74,7 +74,7 @@ class MonthDaysController extends Controller
 
     public function update(Request $request,MonthDays $monthDay)
     {
-        $monthDay=MonthDays::where("monthSn",$monthDay->monthSn)->update([
+        $monthDay=$monthDay->update([
             "workerSn"=>$request->workerSn
              ,"monthName"=>"$request->monthName"
              ,"day1"=>$request->day1
@@ -111,9 +111,9 @@ class MonthDaysController extends Controller
              return response()->json(["monthDay"=>$monthDay]);
     }
 
-    public function destroy($monthDaySn)
+    public function destroy(MonthDays $monthDay)
     {
-        $monthDay=MonthDays::where("monthSn",$monthDaySn)->delete();
+        $monthDay=$monthDay->delete();
         return response()->json(['monthDay'=>$monthDay]);
     }
 }

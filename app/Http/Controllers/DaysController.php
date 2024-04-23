@@ -44,10 +44,9 @@ class DaysController extends Controller
     }
 
 
-    public function update(Request $request, $day)
+    public function update(Request $request,Days $workDay)
     {
-        $days=Days::where("daySn",$day)->first();
-        $day=Days::where("daySn",$days->daySn)->update([  
+        $day=$workDay->update([  
                     "dayName"=>"$request->dayName"
                     , "InAmount"=>$request->InAmount
                     , "OutAmount"=>$request->OutAmount
@@ -57,9 +56,9 @@ class DaysController extends Controller
     }
 
 
-    public function destroy($daySn)
+    public function destroy(Days $workDay)
     {
-        $day=Days::where("DaySn",$daySn)->delete();
+        $day=$workDay->delete();
         return response()->json(["day"=>$day]);
     }
 }

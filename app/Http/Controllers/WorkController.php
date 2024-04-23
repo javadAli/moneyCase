@@ -59,7 +59,7 @@ class WorkController extends Controller
         $userSn=$request->userSn;
         $startDate=now();
         $endDate=now();
-        $work=Work::where("workId",$work->workId)->update(["workName"=>"$workname",
+        $work=$work->update(["workName"=>"$workname",
                     "description"=>"$description",
                     "userSn"=>$userSn,
                     "startDate"=>$startDate,
@@ -71,7 +71,7 @@ class WorkController extends Controller
     public function destroy(Work $work)
     {
         
-        $work=Work::where("WorkId",$work->workId)->delete();
+        $work=$work->delete();
         return response()->json(["work"=>$work]);
     }
 }

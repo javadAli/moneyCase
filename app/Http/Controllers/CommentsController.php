@@ -41,19 +41,18 @@ class CommentsController extends Controller
     }
 
 
-    public function update(Request $request, $commentSn)
+    public function update(Request $request,Comments $dayComment)
     {
-
-        $comments=Comments::where("DayCommentSn",$commentSn)->update([
+        $comments=$dayComment->update([
                                                                                     "comment"=>"$request->comment",
                                                                                     "SnDay"=>$request->SnDay]);
         return response()->json(['comment'=>$comments]);
     }
 
 
-    public function destroy($commentSn)
+    public function destroy(Comments $dayComment)
     {
-        $comment=Comments::where("DayCommentSn",$commentSn)->delete();
+        $comment=$dayComment->delete();
         return response()->json(['comment'=>$comment]);
     }
 }

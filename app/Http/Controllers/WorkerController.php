@@ -54,7 +54,7 @@ class WorkerController extends Controller
         $description=$request->description;
         $workId=$request->workSn;
         $addedTime=now();
-        $worker=Worker::where("WorkerId",$worker->WorkerId)->update([
+        $worker=$worker->update([
             "workerName"=>"$workerName"
             , "description"=>"$description"
             , "workSn"=>$workId
@@ -65,7 +65,7 @@ class WorkerController extends Controller
 
     public function destroy(Worker $worker)
     {
-        $worker=Worker::where("WorkerId",$worker->WorkerId)->delete();
+        $worker=$worker->delete();
         return response()->json(["worker"=>$worker]);
     }
 }

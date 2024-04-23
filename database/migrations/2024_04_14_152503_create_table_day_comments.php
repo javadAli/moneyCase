@@ -11,8 +11,8 @@ return new class extends Migration
         Schema::create('DayComments', function (Blueprint $table) {
             $table->bigIncrements("DayCommentSn");
             $table->string("comment");
-            $table->bigInteger("SnDay");
-            $table->foreign("SnDay")->references("DaySn")->on("daySn")->onDelete("cascade");
+            $table->bigInteger("SnDay")->unsigned();
+            $table->foreign("SnDay")->references("daySn")->on("days")->onDelete("cascade");
         });
     }
 

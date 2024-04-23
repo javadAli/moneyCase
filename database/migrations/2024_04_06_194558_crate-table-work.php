@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integerIncrements("workId");
             $table->string("workName");
             $table->string("description")->nullable();
-            $table->integer("userSn");
+            $table->bigInteger("userSn")->unsigned();
             $table->foreign("userSn")->references("id")->on("users");
             $table->dateTime("startDate")->nullable();
             $table->dateTime("endDate")->nullable();

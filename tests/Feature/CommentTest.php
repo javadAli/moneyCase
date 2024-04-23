@@ -47,6 +47,6 @@ class CommentTest extends TestCase
         $comment=(new Comments())->factory()->create();
         $response=$this->actingAs($user)->delete("/dayComments/".$comment->DayCommentSn);
         $response->assertStatus(200);
-        $this->assertEquals(1,$response->json()["comment"]);
+        $this->assertGreaterThan(0,$response->json()["comment"]);
     }
 }

@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Days extends Model
 {
     use HasFactory;
-    protected $table="days";
     protected $fillable=["dayName", "InAmount", "OutAmount", "SnBookMonth"];
     protected $primaryKey="daySn";
     public function bookMonth(){

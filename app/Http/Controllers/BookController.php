@@ -44,7 +44,7 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
 
-        $book=Book::where("BookSn",$book->BookSn)->update(["bookName"=>"$request->bookName"
+        $book=$book->update(["bookName"=>"$request->bookName"
                             , "description"=>"$request->description"
                             , "SnUSer"=>$request->SnUSer]);
         return response()->json(['book'=>$book]);
@@ -52,7 +52,7 @@ class BookController extends Controller
 
     public function destroy(Book $book)
     {
-        $book=Book::where("BookSn",$book->BookSn)->delete();
+        $book=$book->delete();
         return response()->json(["book"=>$book]);
     }
 }
