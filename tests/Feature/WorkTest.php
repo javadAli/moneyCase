@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use \App\Models\User;
 use Tests\TestCase;
 use \App\Models\Work;
+use \App\Models\Worker;
 
 class WorkTest extends TestCase
 {
@@ -48,5 +49,11 @@ class WorkTest extends TestCase
         $response=$this->actingAs($user)->delete("/works/".$work->workId);
         $this->assertEquals(200,$response->getStatusCode());
         $this->assertGreaterThan(0,$response->json()["work"]);
+    }
+    public function test_the_user_can_get_all_of_the_work_workers(){
+        $user=(new User())->factory()->create();
+        $workers=(new Worker())->factory()->count(5)->create();
+        $response=$this->actingAs($user)->get("/works/getWorkers/".$workers[0]->workSn);
+        $response->assertStatus(200);
     }
 }

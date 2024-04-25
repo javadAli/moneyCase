@@ -10,7 +10,6 @@ class DaysController extends Controller
 
     public function index()
     {
-        //
     }
 
 
@@ -34,13 +33,13 @@ class DaysController extends Controller
 
     public function show(Days $days)
     {
-        //
+        return response()->json(['day'=>$days]);
     }
 
 
     public function edit(Days $days)
     {
-        //
+        return response()->json(['day'=>$days]);
     }
 
 

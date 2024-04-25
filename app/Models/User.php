@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use \App\Models\Work;
+use \App\Models\Book;
 
 class User extends Authenticatable
 {
@@ -28,10 +30,10 @@ class User extends Authenticatable
     ];
 
     public function works() {
-        $this->hasMany(Work::class);
+       return  $this->hasMany(Work::class);
     }
 
     public function books() {
-        $this->hasMany(Book::class);
+       return $this->hasMany(Book::class);
     }
 }

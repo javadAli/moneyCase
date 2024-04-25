@@ -48,4 +48,8 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function getWorks(Request $request,User $user){
+        
+    }
 }

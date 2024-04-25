@@ -10,15 +10,12 @@ class WorkController extends Controller
 
     public function index()
     {
-        return Work::all();
     }
-
 
     public function create()
     {
         //
     }
-
 
     public function store(Request $request)
     {
@@ -34,7 +31,6 @@ class WorkController extends Controller
                     "endDate"=>now()]);
         return response()->json(["work"=>$work]);
     }
-
 
     public function show(Work $work)
     {
@@ -70,8 +66,12 @@ class WorkController extends Controller
 
     public function destroy(Work $work)
     {
-        
         $work=$work->delete();
         return response()->json(["work"=>$work]);
+    }
+
+    public function getWorkers(Request $request,Work $work){
+        $workers=$work->workers();
+        return response()->json(['workers'=>$workers]);
     }
 }
