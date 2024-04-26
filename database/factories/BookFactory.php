@@ -20,7 +20,7 @@ class BookFactory extends Factory
         return  [
                     "bookName"=>fake()->name()
                     , "description"=>Str::random(20)
-                    , "SnUSer"=>$user->id
+                    , "user_id"=>$user->id
                 ];
     }
 }

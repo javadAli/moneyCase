@@ -11,7 +11,7 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $fillable=["bookName", "description", "SnUSer"];
+    protected $fillable=["bookName", "description", "user_id"];
     protected $primaryKey="BookSn";
 
     public function user() {

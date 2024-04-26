@@ -24,7 +24,7 @@ class BookController extends Controller
     {
         $book=Book::create(["bookName"=>"$request->bookName"
                         , "description"=>"$request->description"
-                        , "SnUSer"=>$request->SnUSer]);
+                        , "user_id"=>$request->user_id]);
         return response()->json(['book'=>$book]);
     }
 
@@ -46,7 +46,7 @@ class BookController extends Controller
 
         $book=$book->update(["bookName"=>"$request->bookName"
                             , "description"=>"$request->description"
-                            , "SnUSer"=>$request->SnUSer]);
+                            , "user_id"=>$request->user_id]);
         return response()->json(['book'=>$book]);
     }
 

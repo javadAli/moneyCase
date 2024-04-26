@@ -29,7 +29,7 @@ class BookTest extends TestCase
         $response=$this->actingAs($user)->post("/books",[
              "bookName"=>fake()->name()
             , "description"=>Str::random(20)
-            , "SnUSer"=>$user->id
+            , "user_id"=>$user->id
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,count($response->json()["book"]));
@@ -41,7 +41,7 @@ class BookTest extends TestCase
         $response=$this->actingAs($user)->put("/books/".$book->BookSn,[
                                                                     "bookName"=>fake()->name()
                                                                     , "description"=>Str::random(20)
-                                                                    , "SnUSer"=>$user->id
+                                                                    , "user_id"=>$user->id
                                                                 ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["book"]);

@@ -12,8 +12,8 @@ return new class extends Migration
             $table->bigIncrements("BookSn");
             $table->string("bookName");
             $table->string("description");
-            $table->bigInteger("SnUSer")->unsigned();
-            $table->foreign("SnUser")->references("id")->on("users")->onDelete("cascade");
+            $table->bigInteger("user_id")->unsigned();
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
         });
     }
 
