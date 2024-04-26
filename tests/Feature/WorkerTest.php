@@ -26,7 +26,7 @@ class WorkerTest extends TestCase
         $response=$this->actingAs($user)->post("/workers/",[
             "workerName"=>fake()->name
             , "description"=>Str::random(20)
-            , "workSn"=>$work->workId
+            , "work_workId"=>$work->workId
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,count($response->json()['worker']));
@@ -38,7 +38,7 @@ class WorkerTest extends TestCase
         $response=$this->actingAs($user)->put("/workers/".$worker->WorkerId,[
             "workerName"=>fake()->name
             , "description"=>Str::random(20)
-            , "workSn"=>$work->workId
+            , "work_workId"=>$work->workId
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["worker"]);

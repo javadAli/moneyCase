@@ -71,7 +71,7 @@ class WorkController extends Controller
     }
 
     public function getWorkers(Request $request,Work $work){
-        $workers=$work->workers();
+        $workers=$work->workers;
         return response()->json(['workers'=>$workers]);
     }
 }

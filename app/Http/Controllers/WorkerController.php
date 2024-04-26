@@ -23,12 +23,12 @@ class WorkerController extends Controller
     {
         $workerName=$request->workerName;
         $description=$request->description;
-        $workId=$request->workSn;
+        $workId=$request->work_workId;
         $addedTime=now();
         $worker=Worker::create([
             "workerName"=>"$workerName"
             , "description"=>"$description"
-            , "workSn"=>$workId
+            , "work_workId"=>$workId
             ,"TimeStamp"=>$addedTime
         ]);
         return response()->json(['worker'=>$worker]);
@@ -52,12 +52,12 @@ class WorkerController extends Controller
     {
         $workerName=$request->workerName;
         $description=$request->description;
-        $workId=$request->workSn;
+        $workId=$request->work_workId;
         $addedTime=now();
         $worker=$worker->update([
             "workerName"=>"$workerName"
             , "description"=>"$description"
-            , "workSn"=>$workId
+            , "work_workId"=>$workId
         ]);
         return response()->json(['worker'=>$worker]);
     }

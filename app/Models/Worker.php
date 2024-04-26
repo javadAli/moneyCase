@@ -11,7 +11,7 @@ class Worker extends Model
 {
     use HasFactory;
 
-    protected $fillable=["workerName", "description", "workSn", "TimeStamp"];
+    protected $fillable=["workerName", "description", "work_workId", "TimeStamp"];
     protected $primaryKey="WorkerId";
     public $timestamps=false;
 

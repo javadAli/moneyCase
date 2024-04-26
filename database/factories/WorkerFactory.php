@@ -19,7 +19,7 @@ class WorkerFactory extends Factory
         return [
             "workerName"=>fake()->name()
             , "description"=>Str::random(20)
-            , "workSn"=>$work->workId
+            , "work_workId"=>$work->workId
             , "TimeStamp"=>now()
         ];
     }

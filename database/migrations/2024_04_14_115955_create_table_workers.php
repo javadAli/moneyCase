@@ -17,8 +17,8 @@ return new class extends Migration
             $table->integerIncrements("WorkerId");
             $table->string("workerName");
             $table->string("description")->nullable();
-            $table->integer("workSn")->unsigned();
-            $table->foreign("workSn")->references("workId")->on("works")->onDelete("cascade");
+            $table->integer("work_workId")->unsigned();
+            $table->foreign("work_workId")->references("workId")->on("works")->onDelete("cascade");
             $table->timestamp("TimeStamp")->nullable();
         });
     }
