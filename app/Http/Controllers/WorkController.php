@@ -21,12 +21,12 @@ class WorkController extends Controller
     {
         $workname=$request->workName;
         $description=$request->description;
-        $userSn=$request->userSn;
+        $user_id=$request->user_id;
         $startDate=now();
         $endDate=now();
         $work=Work::create(["workName"=>"$workname",
                     "description"=>"$description",
-                    "userSn"=>$userSn,
+                    "user_id"=>$user_id,
                     "startDate"=>now(),
                     "endDate"=>now()]);
         return response()->json(["work"=>$work]);
@@ -48,16 +48,16 @@ class WorkController extends Controller
     {
         $workname=$request->workName;
         $description=$request->description;
-        $userSn=$request->userSn;
+        $user_id=$request->user_id;
         $startDate=now();
         $endDate=now();
         $description=$request->description;
-        $userSn=$request->userSn;
+        $user_id=$request->user_id;
         $startDate=now();
         $endDate=now();
         $work=$work->update(["workName"=>"$workname",
                     "description"=>"$description",
-                    "userSn"=>$userSn,
+                    "user_id"=>$user_id,
                     "startDate"=>$startDate,
                     "endDate"=>$endDate]);
         return response()->json(["work"=>$work]);

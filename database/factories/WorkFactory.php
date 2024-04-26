@@ -17,7 +17,7 @@ class WorkFactory extends Factory
         return [
             "workName"=>$this->faker->name()
             , "description"=>Str::random(20)
-            , "userSn"=>$user->id
+            , "user_id"=>$user->id
         ];
     }
 }

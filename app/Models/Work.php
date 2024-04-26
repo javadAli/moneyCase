@@ -11,7 +11,7 @@ class Work extends Model
 {
     use HasFactory;
     protected $table="works";
-    protected $fillable=[ "workName", "description", "userSn", "startDate", "endDate"];
+    protected $fillable=[ "workName", "description", "user_id", "startDate", "endDate"];
     protected $primaryKey="workId";
     public $timestamps=false;
 

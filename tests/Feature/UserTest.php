@@ -14,7 +14,8 @@ class UserTest extends TestCase
     public function test_the_user_can_get_the_works(){
         $user=(new User())->factory()->create();
         $works=(new Work())->factory()->create();
-        $response=$this->actingAs($user)->get("user/getWorks/".$works->userSn);
+        $response=$this->actingAs($user)->get("user/getWorks/".$works->user_id);
+        $this->assertEquals(1,count($response->json()["works"]));
         $response->assertStatus(200);
     }
 }

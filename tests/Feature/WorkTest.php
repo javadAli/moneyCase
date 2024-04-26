@@ -23,7 +23,7 @@ class WorkTest extends TestCase
         $user=(new User())->factory()->create();
         $response=$this->actingAs($user)->post("/works",["workName"=>"workTest",
                                                         "description"=>"test test test",
-                                                        "userSn"=>$user->id,
+                                                        "user_id"=>$user->id,
                                                         "startDate"=>now(),
                                                         "endDate"=>now()]);
         $response->assertStatus(200);
@@ -35,7 +35,7 @@ class WorkTest extends TestCase
         $response=$this->actingAs($user)->put("/works/".$work->workId,[
                                                         "workName"=>"workTest",
                                                         "description"=>"test test test",
-                                                        "userSn"=>$user->id,
+                                                        "user_id"=>$user->id,
                                                         "startDate"=>now(),
                                                         "endDate"=>now()
                                                         ]);
