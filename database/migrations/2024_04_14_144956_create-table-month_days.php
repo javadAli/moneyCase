@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create("bookMonths",function(Blueprint $table){
             $table->bigIncrements("BookMonthSn");
-            $table->bigInteger("SnBook")->unsigned();
-            $table->foreign("SnBook")->references("BookSn")->on("books")->onDelete("cascade");
+            $table->bigInteger("books_bookSn")->unsigned();
+            $table->foreign("books_bookSn")->references("BookSn")->on("books")->onDelete("cascade");
             $table->string("NameMonth");
         });
         //

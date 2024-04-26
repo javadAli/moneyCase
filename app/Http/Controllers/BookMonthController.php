@@ -23,7 +23,7 @@ class BookMonthController extends Controller
     public function store(Request $request)
     {
        $bookMonth= BookMonth::create([  
-                            "SnBook"=>$request->SnBook
+                            "books_bookSn"=>$request->books_bookSn
                             , 
                             "NameMonth"=>"$request->NameMonth"
     ]);
@@ -46,7 +46,7 @@ class BookMonthController extends Controller
     public function update(Request $request, BookMonth $bookMonth)
     {
         $bookMonth=$bookMonth->update([  
-                                        "SnBook"=>$request->SnBook
+                                        "books_bookSn"=>$request->books_bookSn
                                         , 
                                         "NameMonth"=>"$request->NameMonth"
                                         ]);

@@ -31,7 +31,7 @@ class BookMonthTest extends TestCase
         $user=(new User())->factory()->create();
         $book=(new Book())->factory()->create();
         $response=$this->actingAs($user)->post("/bookMonths",[
-             "SnBook"=>$book->BookSn
+             "books_bookSn"=>$book->BookSn
             , "NameMonth"=>fake()->monthName()
         ]);
         $response->assertStatus(200);
@@ -42,7 +42,7 @@ class BookMonthTest extends TestCase
         $book= (new Book())->factory()->create();
         $bookMonth=(new BookMonth())->factory()->create();
         $response=$this->actingAs($user)->put("/bookMonths/".$bookMonth->BookMonthSn,[
-            "SnBook"=>$book->BookSn
+            "books_bookSn"=>$book->BookSn
             , "NameMonth"=>fake()->monthName()
         ]);
         $response->assertStatus(200);
