@@ -24,7 +24,7 @@ class CommentsController extends Controller
     {
         $comments=Comments::create([
             "comment"=>"$request->comment",
-            "SnDay"=>$request->SnDay]);
+            "days_daySn"=>$request->days_daySn]);
         return response()->json(['comment'=>$comments]);
     }
 
@@ -45,7 +45,7 @@ class CommentsController extends Controller
     {
         $comments=$dayComment->update([
                                                                                     "comment"=>"$request->comment",
-                                                                                    "SnDay"=>$request->SnDay]);
+                                                                                    "days_daySn"=>$request->days_daySn]);
         return response()->json(['comment'=>$comments]);
     }
 

@@ -22,7 +22,7 @@ class CommentsFactory extends Factory
         $day=(new Days())->factory()->create();
         return [
             "comment"=>Str::random(20),
-            "SnDay"=>$day->daySn
+            "days_daySn"=>$day->daySn
         ];
     }
 }

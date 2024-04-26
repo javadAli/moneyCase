@@ -25,7 +25,7 @@ class CommentTest extends TestCase
 
         $response=$this->actingAs($user)->post("/dayComments",[
             "comment"=>Str::random(20),
-            "SnDay"=>$day->daySn
+            "days_daySn"=>$day->daySn
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,count($response->json()["comment"]));
@@ -37,7 +37,7 @@ class CommentTest extends TestCase
         $comment=(new Comments())->factory()->create();
         $response=$this->actingAs($user)->put("/dayComments/".$comment->DayCommentSn,[
             "comment"=>Str::random(20),
-            "SnDay"=>$day->daySn
+            "days_daySn"=>$day->daySn
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["comment"]);

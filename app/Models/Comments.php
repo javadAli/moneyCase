@@ -10,7 +10,7 @@ class Comments extends Model
 {
     use HasFactory;
     protected $table="daycomments";
-    protected $fillable=["comment", "SnDay"];
+    protected $fillable=["comment", "days_daySn"];
     protected $primaryKey="DayCommentSn";
 
     public function monthDay() {
