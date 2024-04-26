@@ -20,7 +20,7 @@ class MonthDaysFactory extends Factory
     {
         $worker=(new Worker())->factory()->create();
         return [
-            "workerSn"=>$worker->WorkerId
+            "worker_workerId"=>$worker->workerId
             ,"monthName"=>fake()->monthName()
             ,"day1"=>'00'
             ,"day2"=>'00'

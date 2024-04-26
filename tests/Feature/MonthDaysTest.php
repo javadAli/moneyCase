@@ -30,7 +30,7 @@ class MonthDaysTest extends TestCase
         $work=(new Work)->factory()->create();
         $worker=(new Worker())->factory()->create();
         $response=$this->actingAs($user)->post("/monthDays",[
-             "workerSn"=>$worker->WorkerId
+             "worker_workerId"=>$worker->workerId
              ,"monthName"=>fake()->monthName()
              ,"day1"=>'00'
              ,"day2"=>'00'
@@ -72,7 +72,7 @@ class MonthDaysTest extends TestCase
         $worker=(new Worker())->factory()->create();
         $monthDays=(new MonthDays())->factory()->create();
         $response=$this->actingAs($user)->put("/monthDays/".$monthDays->monthSn,[
-            "workerSn"=>$worker->WorkerId
+            "worker_workerId"=>$worker->workerId
             ,"monthName"=>fake()->monthName()
             ,"day1"=>'00'
             ,"day2"=>'00'

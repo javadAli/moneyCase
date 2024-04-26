@@ -23,7 +23,7 @@ class MonthDaysController extends Controller
     public function store(Request $request)
     {
         $monthDay=MonthDays::create([
-            "workerSn"=>$request->workerSn
+            "worker_workerId"=>$request->worker_workerId
              ,"monthName"=>"$request->monthName"
              ,"day1"=>$request->day1
              ,"day2"=>$request->day2
@@ -75,7 +75,7 @@ class MonthDaysController extends Controller
     public function update(Request $request,MonthDays $monthDay)
     {
         $monthDay=$monthDay->update([
-            "workerSn"=>$request->workerSn
+            "worker_workerId"=>$request->worker_workerId
              ,"monthName"=>"$request->monthName"
              ,"day1"=>$request->day1
              ,"day2"=>$request->day2

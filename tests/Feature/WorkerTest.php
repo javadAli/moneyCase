@@ -35,7 +35,7 @@ class WorkerTest extends TestCase
         $user=(new User())->factory()->create();
         $worker=(new Worker())->factory()->create();
         $work=(new Work())->factory()->create();
-        $response=$this->actingAs($user)->put("/workers/".$worker->WorkerId,[
+        $response=$this->actingAs($user)->put("/workers/".$worker->workerId,[
             "workerName"=>fake()->name
             , "description"=>Str::random(20)
             , "work_workId"=>$work->workId
@@ -46,7 +46,7 @@ class WorkerTest extends TestCase
     public function test_the_user_can_delete_the_worker(){
         $user=(new User())->factory()->create();
         $worker=(new Worker())->factory()->create();
-        $response=$this->actingAs($user)->delete("/workers/".$worker->WorkerId);
+        $response=$this->actingAs($user)->delete("/workers/".$worker->workerId);
         $this->assertEquals(200,$response->getStatusCode());
         $this->assertGreaterThan(0,$response->json()["worker"]);
     }

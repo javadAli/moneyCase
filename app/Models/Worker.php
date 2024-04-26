@@ -12,7 +12,7 @@ class Worker extends Model
     use HasFactory;
 
     protected $fillable=["workerName", "description", "work_workId", "TimeStamp"];
-    protected $primaryKey="WorkerId";
+    protected $primaryKey="workerId";
     public $timestamps=false;
 
     public function monthDays() {
