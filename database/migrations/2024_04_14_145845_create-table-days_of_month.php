@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string("dayName");
             $table->bigInteger("InAmount");
             $table->bigInteger("OutAmount");
-            $table->bigInteger("SnBookMonth")->unsigned();
-            $table->foreign("SnBookMonth")->references("BookMonthSn")->on("bookMonths")->onDelete("cascade");
+            $table->bigInteger("bookmonths_bookMonthSn")->unsigned();
+            $table->foreign("bookmonths_bookMonthSn")->references("BookMonthSn")->on("bookMonths")->onDelete("cascade");
         });
     }
 

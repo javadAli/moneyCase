@@ -25,7 +25,7 @@ class DaysController extends Controller
                             "dayName"=>"$request->dayName"
                             , "InAmount"=>$request->InAmount
                             , "OutAmount"=>$request->OutAmount
-                            , "SnBookMonth"=>$request->SnBookMonth
+                            , "bookmonths_bookMonthSn"=>$request->bookmonths_bookMonthSn
                             ]);
         return response()->json(['day'=>$day]);
     }
@@ -49,7 +49,7 @@ class DaysController extends Controller
                     "dayName"=>"$request->dayName"
                     , "InAmount"=>$request->InAmount
                     , "OutAmount"=>$request->OutAmount
-                    , "SnBookMonth"=>$request->SnBookMonth
+                    , "bookmonths_bookMonthSn"=>$request->bookmonths_bookMonthSn
                     ]);
         return response()->json(['day'=>$day]);
     }

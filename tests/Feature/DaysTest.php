@@ -32,7 +32,7 @@ class DaysTest extends TestCase
               "dayName"=>1
             , "InAmount"=>0
             , "OutAmount"=>0
-            , "SnBookMonth"=>$bookMonth->BookMonthSn
+            , "bookmonths_bookMonthSn"=>$bookMonth->BookMonthSn
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,count($response->json()["day"]));
@@ -45,7 +45,7 @@ class DaysTest extends TestCase
             "dayName"=>1
             , "InAmount"=>0
             , "OutAmount"=>0
-            , "SnBookMonth"=>$bookMonth->BookMonthSn
+            , "bookmonths_bookMonthSn"=>$bookMonth->BookMonthSn
         ]);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["day"]);

@@ -16,7 +16,7 @@ class DaysFactory extends Factory
             "dayName"=>1
             , "InAmount"=>0
             , "OutAmount"=>0
-            , "SnBookMonth"=>$bookMonth->BookMonthSn
+            , "bookmonths_bookMonthSn"=>$bookMonth->BookMonthSn
                 ];
     }
 }
