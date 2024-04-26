@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \App\Models\BookMonth;
+use \App\Models\Comments;
 
 class Days extends Model
 {
@@ -12,13 +14,13 @@ class Days extends Model
     protected $primaryKey="daySn";
     public function bookMonth(){
 
-        $this->belongTo(BookMonth::class);
+        return $this->belongTo(BookMonth::class);
 
     }
 
     public function comments(){
 
-        $this->hasMany(Comments::class);
+        return $this->hasMany(Comments::class);
         
     }
     public $timestamps=false;

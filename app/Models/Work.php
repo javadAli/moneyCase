@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use User;
+use \App\Models\User;
 use \App\Models\Worker;
 
 class Work extends Model
@@ -17,7 +17,7 @@ class Work extends Model
 
     public function user() {
 
-        $this->belongTo(User::class);
+      return  $this->belongTo(User::class);
 
     }
 

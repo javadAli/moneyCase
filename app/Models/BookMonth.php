@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Book;
-use Days;
+use \App\Models\Book;
+use \App\Models\Days;
 
 class BookMonth extends Model
 {
@@ -16,12 +16,12 @@ class BookMonth extends Model
 
     public function book() {
 
-        $this->belongTo(Book::class);
+       return  $this->belongTo(Book::class);
 
     }
 
     public function monthDays(){
-        $this->hasMany(Days::class);
+       return  $this->hasMany(Days::class);
     }
     public $timestamps=false;
 }

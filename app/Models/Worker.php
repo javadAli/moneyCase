@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use MonthDays;
-use Work;
+use \App\Models\MonthDays;
+use \App\Models\Work;
 
 class Worker extends Model
 {
@@ -17,13 +17,13 @@ class Worker extends Model
 
     public function monthDays() {
 
-        $this->hasMany(MonthDays::class);
+        return $this->hasMany(MonthDays::class);
 
     }
 
     public function work(){
 
-        $this->belongTo(Work::class);
+        return $this->belongTo(Work::class);
         
     }
 }

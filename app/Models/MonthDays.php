@@ -14,6 +14,6 @@ class MonthDays extends Model{
     public $timestamps=false;
     
     public function worker(){
-        $this->belongTo(Worker::class);
+       return  $this->belongTo(Worker::class);
     }
 }

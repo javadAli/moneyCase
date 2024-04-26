@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use User;
-use BookMonth;
+use \App\Models\User;
+use \App\Models\BookMonth;
 
 class Book extends Model
 {
@@ -15,11 +15,11 @@ class Book extends Model
     protected $primaryKey="BookSn";
 
     public function user() {
-        $this->belongTo(User::class);
+       return  $this->belongTo(User::class);
     }
 
     public function bookMonths(){
-        $this->hasMany(BookMonth::class);
+      return   $this->hasMany(BookMonth::class);
     }
     public $timestamps=false;
 }

@@ -114,7 +114,7 @@ class MonthDaysTest extends TestCase
         $monthDay=(new MonthDays())->factory()->create();
         $response=$this->actingAs($user)->delete("/monthDays/".$monthDay->monthSn);
         $response->assertStatus(200);
-        $this->assertGreaterThan(0,$response->json()["monthDay"]);
+        $this->assertGreaterThan(0,$response->json()["monthDays"]);
         
     }
 }

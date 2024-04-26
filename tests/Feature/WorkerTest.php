@@ -9,6 +9,7 @@ use Tests\TestCase;
 use Illuminate\Support\Str;
 use \App\Models\Work;
 use \App\Models\Worker;
+use \App\Models\MonthDays;
 class WorkerTest extends TestCase
 {
     use RefreshDatabase;
@@ -49,5 +50,12 @@ class WorkerTest extends TestCase
         $response=$this->actingAs($user)->delete("/workers/".$worker->workerId);
         $this->assertEquals(200,$response->getStatusCode());
         $this->assertGreaterThan(0,$response->json()["worker"]);
+    }
+    public function test_the_user_can_get_all_of_monthdays() {
+        $user=(new User())->factory()->create();
+        $monthDays=(new MonthDays())->factory()->create();
+        $response=$this->actingAs($user)->get("/workers/getMonthDays/".$monthDays->worker_workerId);
+        $response->assertStatus(200);
+        //$this->assertGreaterThan(0,count($response->json()["monthDays"]));
     }
 }

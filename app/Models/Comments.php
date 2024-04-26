@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Days;
+use \App\Models\Days;
 
 class Comments extends Model
 {
@@ -15,7 +15,7 @@ class Comments extends Model
 
     public function monthDay() {
         
-        $this->belongTo(Days::class);
+        return $this->belongTo(Days::class);
 
     }
     public $timestamps=false;

@@ -55,6 +55,6 @@ class DaysTest extends TestCase
         $day=(new Days())->factory()->create();
         $response=$this->actingAs($user)->delete("/workDays/".$day->daySn);
         $response->assertStatus(200);
-        $this->assertEquals(1,$response->json()["day"]);
+        $this->assertEquals(1,$response->json()["monthDay"]);
     }
 }

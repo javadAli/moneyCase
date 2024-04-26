@@ -58,6 +58,6 @@ class DaysController extends Controller
     public function destroy(Days $workDay)
     {
         $day=$workDay->delete();
-        return response()->json(["day"=>$day]);
+        return response()->json(["monthDay"=>$day]);
     }
 }

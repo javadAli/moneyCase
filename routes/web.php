@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::get("works/getWorkers/{work}",[WorkController::class,"getWorkers"])->middleware("auth")->name("works.getWorkers");
 Route::resource("works",WorkController::class)->middleware("auth");
+Route::get("/workers/getMonthDays/{worker}",[WorkerController::class,'getMonthDays'])->middleware("auth");
 Route::resource("workers",WorkerController::class)->middleware("auth");
 Route::resource("monthDays",MonthDaysController::class)->middleware("auth");
 Route::resource("books",BookController::class)->middleware("auth");

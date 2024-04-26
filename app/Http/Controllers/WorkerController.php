@@ -68,4 +68,8 @@ class WorkerController extends Controller
         $worker=$worker->delete();
         return response()->json(["worker"=>$worker]);
     }
+    public function getMonthDays(Request $request,Worker $worker) {
+        $monthDays=$worker->monthDays;
+        return response()->json(['monthDays'=>$monthDays]);
+    }
 }
