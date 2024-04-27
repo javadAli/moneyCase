@@ -115,6 +115,13 @@ class MonthDaysTest extends TestCase
         $response=$this->actingAs($user)->delete("/monthDays/".$monthDay->monthSn);
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["monthDays"]);
-        
     }
+    public function test_the_user_can_get_the_monthdays_by_its_id(){
+        $user=(new User())->factory()->create();
+        $monthDay=(new MonthDays())->factory()->create();
+        $response=$this->actingAs($user)->get("/monthDays/".$monthDay->monthSn."/edit");
+        $response->assertStatus(200);
+        $this->assertGreaterThan(0,count($response->json()["monthDay"]));
+    }
+
 }

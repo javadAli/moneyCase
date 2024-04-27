@@ -9,6 +9,7 @@ use \App\Models\Book;
 use \App\Models\User;
 use \App\Models\BookMonth;
 use \App\Models\Work;
+use \App\Models\Days;
 
 class BookMonthTest extends TestCase
 {
@@ -31,7 +32,7 @@ class BookMonthTest extends TestCase
         $user=(new User())->factory()->create();
         $book=(new Book())->factory()->create();
         $response=$this->actingAs($user)->post("/bookMonths",[
-             "books_bookSn"=>$book->BookSn
+             "book_bookSn"=>$book->BookSn
             , "NameMonth"=>fake()->monthName()
         ]);
         $response->assertStatus(200);
@@ -42,7 +43,7 @@ class BookMonthTest extends TestCase
         $book= (new Book())->factory()->create();
         $bookMonth=(new BookMonth())->factory()->create();
         $response=$this->actingAs($user)->put("/bookMonths/".$bookMonth->BookMonthSn,[
-            "books_bookSn"=>$book->BookSn
+            "book_bookSn"=>$book->BookSn
             , "NameMonth"=>fake()->monthName()
         ]);
         $response->assertStatus(200);
@@ -55,5 +56,11 @@ class BookMonthTest extends TestCase
         $response=$this->actingAs($user)->delete("/bookMonths/".$bookMonth->BookMonthSn);
         $response->assertStatus(200);
         $this->assertEquals(1,$response->json()["bookMonth"]);
+    }
+    public function test_the_user_can_get_the_monthDays(){
+        $user=(new User())->factory()->create();
+        $monthDay=(new Days())->factory()->create();
+        $response=$this->actingAs($user)->get("/bookMonths/getDays/".$monthDay->bookmonths_bookMonthSn);
+        $response->assertStatus(200);
     }
 }

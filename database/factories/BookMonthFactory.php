@@ -16,7 +16,7 @@ class BookMonthFactory extends Factory
     {
         $book=(new Book())->factory()->create();
         return [
-             "books_bookSn"=>$book->BookSn
+             "book_bookSn"=>$book->BookSn
             , "NameMonth"=>fake()->monthName()
         ];
     }

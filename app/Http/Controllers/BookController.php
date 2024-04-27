@@ -55,4 +55,8 @@ class BookController extends Controller
         $book=$book->delete();
         return response()->json(["book"=>$book]);
     }
+    public function getMonths(Request $request,Book $book){
+        $bookMonts=$book->bookMonths;
+        return response()->json(['bookMonth'=>$bookMonts]);
+    }
 }

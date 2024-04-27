@@ -13,15 +13,11 @@ class Days extends Model
     protected $fillable=["dayName", "InAmount", "OutAmount", "bookmonths_bookMonthSn"];
     protected $primaryKey="daySn";
     public function bookMonth(){
-
         return $this->belongTo(BookMonth::class);
-
     }
 
     public function comments(){
-
         return $this->hasMany(Comments::class);
-        
     }
     public $timestamps=false;
 }

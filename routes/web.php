@@ -27,7 +27,9 @@ Route::get("works/getWorkers/{work}",[WorkController::class,"getWorkers"])->midd
 Route::resource("works",WorkController::class)->middleware("auth");
 Route::get("/workers/getMonthDays/{worker}",[WorkerController::class,'getMonthDays'])->middleware("auth");
 Route::resource("workers",WorkerController::class)->middleware("auth");
+Route::get("/bookMonths/getDays/{bookMonth}",[BookMonthController::class,'getDays'])->middleware("auth");
 Route::resource("monthDays",MonthDaysController::class)->middleware("auth");
+Route::get("/books/getMonths/{book}",[BookController::class,"getMonths"])->middleware("auth");
 Route::resource("books",BookController::class)->middleware("auth");
 Route::resource("bookMonths",BookMonthController::class)->middleware("auth");
 Route::resource("dayComments",CommentsController::class)->middleware("auth");

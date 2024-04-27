@@ -56,6 +56,6 @@ class WorkerTest extends TestCase
         $monthDays=(new MonthDays())->factory()->create();
         $response=$this->actingAs($user)->get("/workers/getMonthDays/".$monthDays->worker_workerId);
         $response->assertStatus(200);
-        //$this->assertGreaterThan(0,count($response->json()["monthDays"]));
+        $this->assertGreaterThan(0,count($response->json()["monthDays"]));
     }
 }

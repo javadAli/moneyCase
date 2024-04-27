@@ -60,22 +60,22 @@ class MonthDaysController extends Controller
     }
 
 
-    public function show(MonthDays $monthDays)
+    public function show(MonthDays $monthDay)
     {
         //
     }
 
 
-    public function edit(MonthDays $monthDays)
+    public function edit(MonthDays $monthDay)
     {
-        //
+        return response()->json(["monthDay"=>$monthDay]);
     }
 
 
     public function update(Request $request,MonthDays $monthDay)
     {
         $monthDay=$monthDay->update([
-            "worker_workerId"=>$request->worker_workerId
+             "worker_workerId"=>$request->worker_workerId
              ,"monthName"=>"$request->monthName"
              ,"day1"=>$request->day1
              ,"day2"=>$request->day2
@@ -116,4 +116,5 @@ class MonthDaysController extends Controller
         $monthDay=$monthDay->delete();
         return response()->json(['monthDays'=>$monthDay]);
     }
+
 }

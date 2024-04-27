@@ -11,7 +11,7 @@ class BookMonth extends Model
 {
     use HasFactory;
     protected $table="bookmonths";
-    protected $fillable=["books_bookSn", "NameMonth"];
+    protected $fillable=["book_bookSn", "NameMonth"];
     protected $primaryKey="BookMonthSn";
 
     public function book() {
