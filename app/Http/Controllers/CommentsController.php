@@ -35,17 +35,17 @@ class CommentsController extends Controller
     }
 
 
-    public function edit(Comments $comments)
+    public function edit(Comments $dayComment)
     {
-        //
+        return response()->json(['comments'=>$dayComment]);
     }
 
 
     public function update(Request $request,Comments $dayComment)
     {
         $comments=$dayComment->update([
-                                                                                    "comment"=>"$request->comment",
-                                                                                    "days_daySn"=>$request->days_daySn]);
+                                    "comment"=>"$request->comment",
+                                    "days_daySn"=>$request->days_daySn]);
         return response()->json(['comment'=>$comments]);
     }
 

@@ -49,4 +49,10 @@ class CommentTest extends TestCase
         $response->assertStatus(200);
         $this->assertGreaterThan(0,$response->json()["comment"]);
     }
+    public function test_the_user_can_get_the_comment_by_id(){
+        $user=(new User())->factory()->create();
+        $comment=(new Comments())->factory()->create();
+        $response=$this->actingAs($user)->get("/dayComments/".$comment->DayCommentSn."/edit");
+        $this->assertGreaterThan(0,count($response->json()["comments"]));
+    }
 }
