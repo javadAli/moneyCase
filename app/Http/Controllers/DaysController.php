@@ -43,9 +43,9 @@ class DaysController extends Controller
     }
 
 
-    public function update(Request $request,Days $workDay)
+    public function update(Request $request,Days $bookDay)
     {
-        $day=$workDay->update([  
+        $day=$bookDay->update([  
                     "dayName"=>"$request->dayName"
                     , "InAmount"=>$request->InAmount
                     , "OutAmount"=>$request->OutAmount
@@ -55,9 +55,13 @@ class DaysController extends Controller
     }
 
 
-    public function destroy(Days $workDay)
+    public function destroy(Days $bookDay)
     {
-        $day=$workDay->delete();
+        $day=$bookDay->delete();
         return response()->json(["monthDay"=>$day]);
+    }
+    public function getComments(Request $request,Days $bookDay){
+        $comments=$bookDay->comments;
+        return response()->json(['comments'=>$comments]);
     }
 }
